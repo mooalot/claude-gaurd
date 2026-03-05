@@ -1,0 +1,129 @@
+{
+  "name": "claude-guard",
+  "displayName": "Claude Guard",
+  "description": "Visualize and manage Claude Code deny rules. Highlights denied files in the explorer and lets you add/remove deny rules via right-click.",
+  "version": "0.1.0",
+  "publisher": "hone",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mooalot/claude-gaurd"
+  },
+  "engines": {
+    "vscode": "^1.74.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "keywords": [
+    "claude",
+    "claude-code",
+    "deny",
+    "permissions",
+    "ai",
+    "guard"
+  ],
+  "icon": "icon.png",
+  "main": "./out/extension.js",
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "contributes": {
+    "colors": [
+      {
+        "id": "claudeGuard.deniedFileColor",
+        "description": "Color for files denied in .claude/settings.json",
+        "defaults": {
+          "light": "#E08A3C",
+          "dark": "#E08A3C",
+          "highContrast": "#E08A3C",
+          "highContrastLight": "#E08A3C"
+        }
+      }
+    ],
+    "commands": [
+      {
+        "command": "claudeGuard.dontTouch",
+        "title": "Don't Touch (Edit + Write + Bash)"
+      },
+      {
+        "command": "claudeGuard.denyEdit",
+        "title": "Deny Edit"
+      },
+      {
+        "command": "claudeGuard.denyRead",
+        "title": "Deny Read"
+      },
+      {
+        "command": "claudeGuard.denyBash",
+        "title": "Deny Bash"
+      },
+      {
+        "command": "claudeGuard.denyWrite",
+        "title": "Deny Write"
+      },
+      {
+        "command": "claudeGuard.removeDeny",
+        "title": "Remove from deny list"
+      }
+    ],
+    "submenus": [
+      {
+        "id": "claudeGuard.submenu",
+        "label": "Claude Guard"
+      }
+    ],
+    "menus": {
+      "explorer/context": [
+        {
+          "submenu": "claudeGuard.submenu",
+          "group": "7_modification"
+        }
+      ],
+      "claudeGuard.submenu": [
+        {
+          "command": "claudeGuard.dontTouch",
+          "group": "1_quick"
+        },
+        {
+          "command": "claudeGuard.denyEdit",
+          "group": "2_individual"
+        },
+        {
+          "command": "claudeGuard.denyRead",
+          "group": "2_individual"
+        },
+        {
+          "command": "claudeGuard.denyBash",
+          "group": "2_individual"
+        },
+        {
+          "command": "claudeGuard.denyWrite",
+          "group": "2_individual"
+        },
+        {
+          "command": "claudeGuard.removeDeny",
+          "group": "3_remove"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "package": "vsce package",
+    "test": "vitest run"
+  },
+  "devDependencies": {
+    "@types/minimatch": "^5.1.2",
+    "@types/node": "^20.0.0",
+    "@types/vscode": "^1.74.0",
+    "@vscode/vsce": "^3.0.0",
+    "typescript": "^5.0.0",
+    "vitest": "^4.0.18"
+  },
+  "dependencies": {
+    "minimatch": "^9.0.0"
+  }
+}
