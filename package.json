@@ -3,11 +3,11 @@
   "displayName": "Claude Guard",
   "description": "Visualize and manage Claude Code deny rules. Highlights denied files in the explorer and lets you add/remove deny rules via right-click.",
   "version": "0.1.0",
-  "publisher": "hone",
+  "publisher": "mooalot",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/mooalot/claude-gaurd"
+    "url": "https://github.com/mooalot/claude-guard"
   },
   "engines": {
     "vscode": "^1.74.0"
